@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Recordatorio · Mi cumpleaños 18</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #070b16;
+      --navy2: #0f1a33;
+      --silk: #1c2a4d;
+      --gold: #c9a45c;
+      --gold2: #e8cf94;
+      --ivory: #ecebe6;
+      --ink: #1c2a4d;
+      --goldtext: #8a6a2c;
+      --paper: #fbf8f1;
+      box-sizing: border-box;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-variant-numeric: lining-nums;
+      background:
+        linear-gradient(180deg, #0c192e 0%, #1a3050 50%, #0c192e 100%);
+      background-attachment: fixed;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: min(76px, 12cqh) min(28px, 5cqw) min(44px, 2cqh);
+      font-size: min(1rem, 3.3cqh);
+      text-align: center;
+      border: 2px solid var(--gold);
+      outline: 1px solid rgba(201, 164, 92, .45);
+      outline-offset: 6px;
+      background: var(--paper);
+      box-shadow: 0 20px 60px rgba(28, 42, 77, .12), 0 2px 8px rgba(28, 42, 77, .06);
+    }
+
+    .invitation {
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+      container-type: size;
+    }
+
+    .card::before,
+    .card::after {
+      /* polvo dorado */
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      pointer-events: none;
+      background-image: radial-gradient(circle, var(--gold) 0 1px, transparent 1.6px);
+      background-size: 9px 9px;
+      opacity: .5;
+      -webkit-mask-image: radial-gradient(circle at 0 0, #000, transparent 70%);
+      mask-image: radial-gradient(circle at 0 0, #000, transparent 70%);
+    }
+
+    .card::before {
+      top: -20px;
+      left: -20px
+    }
+
+    .card::after {
+      bottom: -20px;
+      right: -20px;
+      transform: rotate(180deg)
+    }
+
+    .script {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: min(2.1rem, 4.5cqh, 7cqw);
+      line-height: 1.2;
+      color: var(--ink)
+    }
+
+    .big {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: min(7.5rem, 12cqh);
+      line-height: 1;
+      margin: min(8px, 1cqh) 0 0;
+      letter-spacing: -.02em
+    }
+
+    .hours {
+      margin-top: min(14px, 1cqh);
+      font-size: min(1.35rem, 3.3cqh, 5cqw);
+      letter-spacing: .04em;
+      color: var(--goldtext)
+    }
+
+    .hours b {
+      font-weight: 600;
+      color: var(--goldtext)
+    }
+
+    .rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: min(24px, 1cqh) auto
+    }
+
+    .cta {
+      align-self: center;
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: none;
+      font: 500 min(1.25rem, 4cqh, 6cqw) "Cormorant Garamond", serif;
+      letter-spacing: .06em;
+      color: #1a1405;
+      padding: min(14px, 1.5cqh) min(38px, 5cqw);
+      border: 0;
+      background: linear-gradient(135deg, var(--gold2), var(--gold) 55%, #a98339);
+      box-shadow: 0 6px 24px rgba(201, 164, 92, .25);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(201, 164, 92, .4)
+    }
+
+    .cta:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px
+    }
+
+    .dress {
+      font-size: min(1.8rem, 4.5cqh, 7cqw);
+      color: var(--ink)
+    }
+
+    .dresstext {
+      margin-top: min(6px, 1cqh);
+      font-size: min(1.25rem, 3.3cqh, 5cqw);
+      line-height: 1.25
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .cta {
+        transition: none
+      }
+    }
+
+    #musica {
+      position: absolute;
+      top: min(12px, 2cqh);
+      right: 12px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: min(44px, 9cqh);
+      padding: min(9px, 1cqh) 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--goldtext);
+      background: var(--paper);
+      border: 1px solid rgba(201, 164, 92, .6);
+      font: 500 min(1rem, 3.3cqh) "Cormorant Garamond", serif
+    }
+
+    #musica .ico {
+      font-size: min(1.2rem, 4cqh);
+      line-height: 1
+    }
+
+    #musica:not(.on) .ico {
+      opacity: .55;
+      text-decoration: line-through
+    }
+
+    #musica:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="invitation">
+  <main class="card">
+    <button id="musica" type="button" aria-pressed="false"><span class="ico">♪</span><span
+        id="mlabel">Música</span></button>
+    <p class="script">¡No te olvides! Mi cumple es el</p>
+    <h1 class="big">11</h1>
+
+    <p class="hours" style="margin-top:0">Viernes 11 de diciembre de 2026</p>
+    <p class="hours">Desde las <b>18 h</b> hasta las <b>23 h</b></p>
+
+    <div class="rule"></div>
+
+    <p class="script dress">Recordá la vestimenta</p>
+    <p class="dresstext">CASUAL INFORMAL<br>¡Vení con lo que te sientas cómodo/a!</p>
+
+    <div class="rule"></div>
+
+    <p class="script dress">Lugar</p>
+    <p class="dresstext">Club Sueco de Buenos Aires,<br>Azopardo y Avenida Garay.</p>
+
+    <div class="rule"></div>
+
+    <p class="dresstext">Si no sabés qué regalarme, podés darme algo por Mercado Pago:</p>
+    <button id="mp" class="cta" type="button">Copiar alias: david.frei.mp</button>
+  </main>
+  </div>
+
+  <script>
+    // Alias de Mercado Pago: se copia al portapapeles al tocar el botón
+    (function () {
+      var ALIAS = "david.frei.mp";
+      var btn = document.getElementById("mp");
+      function listo() {
+        btn.textContent = "¡Alias copiado!";
+        setTimeout(function () { btn.textContent = "Copiar alias: " + ALIAS; }, 2500);
+      }
+      function fallback() {
+        var t = document.createElement("textarea");
+        t.value = ALIAS; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); listo(); } catch (e) { }
+        document.body.removeChild(t);
+      }
+      btn.addEventListener("click", function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(ALIAS).then(listo, fallback);
+        } else { fallback(); }
+      });
+    })();
+  </script>
+
+  <audio id="audio" src="musica.mp3" loop preload="auto"></audio>
+
+  <script>
+    // Música de fondo: intenta arrancar sola; si el navegador lo bloquea, arranca con el primer toque
+    (function () {
+      var audio = document.getElementById('audio'), btn = document.getElementById('musica'), lab = document.getElementById('mlabel');
+      audio.volume = 0.45;
+      function ui(on) { btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', String(on)); lab.textContent = on ? 'Pausar' : 'Música'; }
+      audio.addEventListener('play', function () { ui(true); });
+      audio.addEventListener('pause', function () { ui(false); });
+      btn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+      function first(e) {
+        document.removeEventListener('pointerdown', first); document.removeEventListener('keydown', first);
+        if (!e.target.closest('#musica')) audio.play().catch(function () { });
+      }
+      document.addEventListener('pointerdown', first); document.addEventListener('keydown', first);
+      audio.play().then(function () {
+        document.removeEventListener('pointerdown', first); document.removeEventListener('keydown', first);
+      }).catch(function () { });
+      document.addEventListener('visibilitychange', function () { if (document.hidden) audio.pause(); });
+    })();
+  </script>
+</body>
+
+</html>
